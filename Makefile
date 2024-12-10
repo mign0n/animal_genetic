@@ -1,4 +1,4 @@
-WORKDIR = animal_genetic
+WORKDIR = src
 DEVREQS = dev-requirements.txt
 REQS = requirements.txt
 

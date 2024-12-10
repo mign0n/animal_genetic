@@ -38,7 +38,7 @@ line-length = 79
 skip-string-normalization = "true"
 
 [tool.django-stubs]
-django_settings_module = "config.settings"
+django_settings_module = "animal_genetic.settings"
 
 [tool.flake8]
 ignore = [
@@ -57,7 +57,7 @@ extend-exclude = [
 [tool.isort]
 profile = "black"
 line_length = 79
-src_paths = "animal_genetic"
+src_paths = "src"
 
 [tool.setuptools]
 py-modules = []
