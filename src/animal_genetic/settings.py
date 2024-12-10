@@ -1,14 +1,20 @@
+import os
 from pathlib import Path
+
+from dotenv import find_dotenv, load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = (
-    'django-insecure-j8ssoi!^^n_#xy9=+9gjyjuh*n9bq4nradnonk!ik7#&$vg0h-'
+load_dotenv(dotenv_path=find_dotenv())
+
+SECRET_KEY = os.getenv(
+    'DJANGO_SECRET_KEY',
+    'django-insecure-j8ssoi!^^n_#xy9=+9gjyjuh*n9bq4nradnonk!ik7#&$vg0h-',
 )
 
-DEBUG = True
+DEBUG = bool(os.getenv('DEBUG', False))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -53,8 +59,12 @@ WSGI_APPLICATION = 'animal_genetic.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'postgres'),
+        'USER': os.getenv('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'postgres'),
+        'HOST': os.getenv('DB_HOST', ''),
+        'PORT': os.getenv('DB_PORT', 5432),
     },
 }
 
