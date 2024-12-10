@@ -19,4 +19,5 @@ style:
 	black $(WORKDIR)
 	isort $(WORKDIR)
 	flake8 --toml-config=pyproject.toml $(WORKDIR)
+	mypy --config-file=pyproject.toml $(WORKDIR)
 	pymarkdown -d md033 scan -r .

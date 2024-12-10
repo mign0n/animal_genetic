@@ -21,6 +21,7 @@ dev = [
     "black",
     "django-stubs",
     "django-stubs-ext",
+    "djangorestframework-stubs",
     "flake8",
     "flake8-annotations",
     "flake8-bugbear",
@@ -58,6 +59,25 @@ extend-exclude = [
 profile = "black"
 line_length = 79
 src_paths = "src"
+
+[tool.mypy]
+python_version = "3.12"
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+check_untyped_defs = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+ignore_errors = false
+ignore_missing_imports = true
+implicit_reexport = false
+strict_optional = true
+strict_equality = true
+no_implicit_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unreachable = true
+warn_no_return = true
+mypy_path = "src"
 
 [tool.setuptools]
 py-modules = []

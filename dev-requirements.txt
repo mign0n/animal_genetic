@@ -16,8 +16,12 @@ attrs==24.2.0
     #   flake8-bugbear
 black==24.10.0
     # via animal_genetic (pyproject.toml)
+certifi==2024.8.30
+    # via requests
 cfgv==3.4.0
     # via pre-commit
+charset-normalizer==3.4.0
+    # via requests
 click==8.1.7
     # via black
 columnar==1.4.1
@@ -31,12 +35,16 @@ django==5.1.4
     #   django-stubs-ext
     #   djangorestframework
 django-stubs==5.1.1
-    # via animal_genetic (pyproject.toml)
+    # via
+    #   animal_genetic (pyproject.toml)
+    #   djangorestframework-stubs
 django-stubs-ext==5.1.1
     # via
     #   animal_genetic (pyproject.toml)
     #   django-stubs
 djangorestframework==3.15.2
+    # via animal_genetic (pyproject.toml)
+djangorestframework-stubs==3.15.1
     # via animal_genetic (pyproject.toml)
 filelock==3.16.1
     # via virtualenv
@@ -60,6 +68,8 @@ gunicorn==23.0.0
     # via animal_genetic (pyproject.toml)
 identify==2.6.3
     # via pre-commit
+idna==3.10
+    # via requests
 isort==5.13.2
     # via animal_genetic (pyproject.toml)
 mccabe==0.7.0
@@ -100,6 +110,8 @@ pyyaml==6.0.2
     # via
     #   application-properties
     #   pre-commit
+requests==2.32.3
+    # via djangorestframework-stubs
 sqlparse==0.5.2
     # via django
 tomli==2.2.1
@@ -107,14 +119,23 @@ tomli==2.2.1
 toolz==1.0.0
     # via columnar
 types-pyyaml==6.0.12.20240917
-    # via django-stubs
+    # via
+    #   django-stubs
+    #   djangorestframework-stubs
+types-requests==2.32.0.20241016
+    # via djangorestframework-stubs
 typing-extensions==4.12.2
     # via
     #   application-properties
     #   django-stubs
     #   django-stubs-ext
+    #   djangorestframework-stubs
     #   mypy
     #   pymarkdownlnt
+urllib3==2.2.3
+    # via
+    #   requests
+    #   types-requests
 virtualenv==20.28.0
     # via pre-commit
 wcwidth==0.2.13
