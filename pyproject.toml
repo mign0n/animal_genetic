@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "animal_genetic"
+version = "0.0.1"
+description = "RESTfull API for genetic scientists."
+readme = "README.md"
+requires-python = ">=3.12, <3.13"
+dependencies = [
+    "Django",
+    "djangorestframework",
+    "gunicorn",
+    "psycopg2-binary",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "django-stubs",
+    "django-stubs-ext",
+    "flake8",
+    "flake8-annotations",
+    "flake8-bugbear",
+    "flake8-commas",
+    "Flake8-pyproject",
+    "isort",
+    "mypy",
+    "pep8-naming",
+    "pre-commit",
+    "pymarkdownlnt",
+]
+
+[tool.black]
+line-length = 79
+skip-string-normalization = "true"
+
+[tool.django-stubs]
+django_settings_module = "config.settings"
+
+[tool.flake8]
+ignore = [
+    "ANN101",  # Missing type annotation for self in method
+    "ANN102", # Missing type annotation for cls in classmethod
+    "W503", # Line break before binary operator
+]
+per-file-ignores = ["*/settings.py: E501"]
+max-complexity = 10
+max-line-length = 80
+extend-exclude = [
+    "venv/",
+    "*/migrations",
+]
+
+[tool.isort]
+profile = "black"
+line_length = 79
+src_paths = "animal_genetic"
+
+[tool.setuptools]
+py-modules = []
