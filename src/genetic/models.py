@@ -8,5 +8,5 @@ class GeneticTest(models.Model):
     species = models.CharField()
     test_date = models.DateField()
     milk_yield = models.FloatField()
-    health_status = models.CharField(choices=HealthStatus)
+    health_status = models.CharField(choices=HealthStatus.choices)
     created_at = models.DateTimeField(auto_now=True)
