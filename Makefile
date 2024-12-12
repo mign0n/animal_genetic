@@ -21,3 +21,6 @@ style:
 	flake8 --toml-config=pyproject.toml $(WORKDIR)
 	mypy --config-file=pyproject.toml $(WORKDIR)
 	pymarkdown -d md033 scan -r .
+
+run:
+	sudo docker compose up && sudo docker compose down

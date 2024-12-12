@@ -16,3 +16,16 @@ services:
       timeout: 5s
       retries: 5
     restart: always
+
+  app:
+    build:
+      context: .
+    container_name: app
+    env_file: .env
+    ports:
+      - 9000:9000
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh -c "cd src && python manage.py migrate && gunicorn --bind 0.0.0.0:9000 animal_genetic.wsgi"
+    restart: always
